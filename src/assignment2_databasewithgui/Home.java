@@ -126,7 +126,7 @@ public class Home extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Home");
+        setTitle("Library Management System 1.0v - Home");
 
         welcome.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         welcome.setText("Welcome,");

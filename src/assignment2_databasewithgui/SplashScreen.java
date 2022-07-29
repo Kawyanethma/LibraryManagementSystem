@@ -80,6 +80,7 @@ public class SplashScreen extends javax.swing.JFrame {
         LBar.setForeground(new java.awt.Color(0, 153, 0));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Splash Screen.png"))); // NOI18N
+        background.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
 
         L.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
         L.setForeground(new java.awt.Color(153, 204, 255));

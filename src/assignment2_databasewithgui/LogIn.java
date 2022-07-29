@@ -49,6 +49,7 @@ public class LogIn extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Library Management System 1.0v");
 
         welcomeLable.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         welcomeLable.setText("Library Management System");

@@ -50,6 +50,7 @@ public class Addselection extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         next.setIcon(new javax.swing.ImageIcon(getClass().getResource("/next.png"))); // NOI18N
         next.setText("Next");
