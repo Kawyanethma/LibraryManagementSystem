@@ -276,12 +276,17 @@ public class Home extends javax.swing.JFrame {
                 searchBarActionPerformed(evt);
             }
         });
+        searchBar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                searchBarKeyPressed(evt);
+            }
+        });
 
         serach.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         serach.setText("Serach books by ID");
 
         Serach.setIcon(new javax.swing.ImageIcon(getClass().getResource("/searching.png"))); // NOI18N
-        Serach.setText("Serach");
+        Serach.setText("Search");
         Serach.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SerachActionPerformed(evt);
@@ -341,6 +346,9 @@ public class Home extends javax.swing.JFrame {
                 settingsActionPerformed(evt);
             }
         });
+
+        timeBar.setBackground(new java.awt.Color(0, 0, 0));
+        timeBar.setForeground(new java.awt.Color(204, 204, 255));
 
         time.setText("Time");
         timeBar.add(time);
@@ -636,7 +644,7 @@ public class Home extends javax.swing.JFrame {
 
     private void searchBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBarActionPerformed
         // TODO add your handling code here:
-         searchBar.setText("");
+
         
     }//GEN-LAST:event_searchBarActionPerformed
 
@@ -842,13 +850,13 @@ public class Home extends javax.swing.JFrame {
                                
                     if(books.isSelected()){
                         if(rs.next()==true){
-                            String p = rs.getString("loaner");
-                            if(p.equals(""))
-                                JOptionPane.showMessageDialog(this, "This item didn't checkout yet!","Can't Renew",JOptionPane.ERROR_MESSAGE);
+                            rebook = rs.getString("referBook");
+                            if(rebook.equals("Yes"))
+                                JOptionPane.showMessageDialog(this, "Can't renew reference books","Warning !",JOptionPane.WARNING_MESSAGE);    
                             else{
-                                rebook = rs.getString("referBook");
-                                if(rebook.equals("Yes"))
-                                    JOptionPane.showMessageDialog(this, "Can't renew reference books","Warning !",JOptionPane.WARNING_MESSAGE);    
+                                String p = rs.getString("loaner");
+                                if(p.equals(""))
+                                JOptionPane.showMessageDialog(this, "This item didn't checkout yet!","Can't Renew",JOptionPane.ERROR_MESSAGE);
                                 else{
                                     book = new Book (rs.getString("bookName"),21,rs.getString("ISBN"),rs.getString("authorName"));
                                     book.setloanedTo(rs.getString("loaner"));
@@ -952,6 +960,14 @@ public class Home extends javax.swing.JFrame {
         s.Logo();
         
     }//GEN-LAST:event_settingsActionPerformed
+
+    private void searchBarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchBarKeyPressed
+        // TODO add your handling code here:
+         if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            java.awt.event.ActionEvent ev=null;
+            SerachActionPerformed(ev);
+        }
+    }//GEN-LAST:event_searchBarKeyPressed
     
     
     
